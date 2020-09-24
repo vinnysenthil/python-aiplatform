@@ -2062,16 +2062,18 @@ def test_job_service_grpc_lro_client():
     assert transport.operations_client is transport.operations_client
 
 
-def test_batch_prediction_job_path():
+def test_hyperparameter_tuning_job_path():
     project = "squid"
     location = "clam"
-    batch_prediction_job = "whelk"
+    hyperparameter_tuning_job = "whelk"
 
-    expected = "projects/{project}/locations/{location}/batchPredictionJobs/{batch_prediction_job}".format(
-        project=project, location=location, batch_prediction_job=batch_prediction_job,
+    expected = "projects/{project}/locations/{location}/hyperparameterTuningJobs/{hyperparameter_tuning_job}".format(
+        project=project,
+        location=location,
+        hyperparameter_tuning_job=hyperparameter_tuning_job,
     )
-    actual = JobServiceClient.batch_prediction_job_path(
-        project, location, batch_prediction_job
+    actual = JobServiceClient.hyperparameter_tuning_job_path(
+        project, location, hyperparameter_tuning_job
     )
     assert expected == actual
 
@@ -2102,17 +2104,15 @@ def test_custom_job_path():
     assert expected == actual
 
 
-def test_hyperparameter_tuning_job_path():
+def test_batch_prediction_job_path():
     project = "squid"
     location = "clam"
-    hyperparameter_tuning_job = "whelk"
+    batch_prediction_job = "whelk"
 
-    expected = "projects/{project}/locations/{location}/hyperparameterTuningJobs/{hyperparameter_tuning_job}".format(
-        project=project,
-        location=location,
-        hyperparameter_tuning_job=hyperparameter_tuning_job,
+    expected = "projects/{project}/locations/{location}/batchPredictionJobs/{batch_prediction_job}".format(
+        project=project, location=location, batch_prediction_job=batch_prediction_job,
     )
-    actual = JobServiceClient.hyperparameter_tuning_job_path(
-        project, location, hyperparameter_tuning_job
+    actual = JobServiceClient.batch_prediction_job_path(
+        project, location, batch_prediction_job
     )
     assert expected == actual
